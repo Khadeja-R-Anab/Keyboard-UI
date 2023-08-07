@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function CorrectCounter({timeRemaining, 
+export default function CorrectCounter({timeEnded, 
     setKeyPressed, 
     selectedID, 
     setSelectedID, 
@@ -33,7 +33,7 @@ export default function CorrectCounter({timeRemaining,
     }
 
     function releaseHandler(event) {
-        if (timeRemaining !== 0 && started !== 0) {
+        if (timeEnded === 0 && started !== 0) {
             
             let keyElement = (event.key).toString().toUpperCase();
 
@@ -51,7 +51,7 @@ export default function CorrectCounter({timeRemaining,
     }
 
     function pressHandler (event) {
-        if (timeRemaining !== 0 && started !== 0) {
+        if (timeEnded === 0 && started !== 0) {
             if (event.keyCode === 9) { event.preventDefault(); }
 
             let keyElement = (event.key).toString().toUpperCase();
@@ -65,7 +65,7 @@ export default function CorrectCounter({timeRemaining,
 
     return (
         <div className="my-text"> 
-            { timeRemaining === 0 ? null 
+            { timeEnded === 1 ? null 
                 : <div>
                     <div className="my-text">Correct Keys Pressed : {correctKeys}</div>
                     <input autoFocus onKeyDown={pressHandler} onKeyUp={releaseHandler} onBlur={handleFocus} className="input-bar" spellCheck="false"/> 
