@@ -8,7 +8,8 @@ export default function CorrectCounter({timeRemaining,
     setCorrectKeys, 
     setIncorrectKeys, 
     numbers, 
-    alphabets}) {
+    alphabets, 
+    started}) {
 
     const [shuffledArray, setShuffledArray] = useState([]);
 
@@ -32,7 +33,7 @@ export default function CorrectCounter({timeRemaining,
     }
 
     function releaseHandler(event) {
-        if (timeRemaining !== 0) {
+        if (timeRemaining !== 0 && started !== 0) {
             
             let keyElement = (event.key).toString().toUpperCase();
 
@@ -50,7 +51,7 @@ export default function CorrectCounter({timeRemaining,
     }
 
     function pressHandler (event) {
-        if (timeRemaining !== 0) {
+        if (timeRemaining !== 0 && started !== 0) {
             if (event.keyCode === 9) { event.preventDefault(); }
 
             let keyElement = (event.key).toString().toUpperCase();

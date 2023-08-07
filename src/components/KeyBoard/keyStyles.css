@@ -1,92 +1,132 @@
-.keyboard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 500;
-    height: 100vh;
-}
+/* Keyboard.js */
+    .keyboard {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        height: 100vh;
+    }
 
-.overlap {
-    font-size: 2em;
-    text-transform: uppercase;
-    color: rgba(0,0,0,0.5);
-}
+/* Start.js */
+    .overlay {
+        height: 100%;
+        width: 100%;
+        position: fixed; 
+        z-index: 10;
+        left: 0;
+        top: 0;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        backdrop-filter: blur(5px);
+        background-color: rgba(255, 255, 255, 0.6);
+    }
 
-.selected {
-    background-color: yellow;
-}
+    .overlay-content {
+        position: relative;
+        top: 25%; 
+        width: 100%; 
+        text-align: center; 
+        margin-top: 30px;
+        color: white;
+        z-index: 11;
+        font-size: 50px;
+        text-align: center;
+        padding: 80px 0px;
+    }
 
-.pressed {
-    background-color: slategray;
-    color: white;
-}
+    .overlay-button {
+        background-color: rgba(0,0,0,0.5);
+        color: white;
+        padding: 15px;
+        outline: none;
+        border: 1px solid white;
+        border-radius: 5px;
+    }
 
-.input-bar {
-    color:white;
-    width: 100%;
-    border-color: white;
-    border-style: solid;
-    cursor: default;
-}
+/* PrintKeys.js */
+    .overlap {
+        font-size: 2em;
+        text-transform: uppercase;
+        color: rgba(0,0,0,0.5);
+    }
 
-:focus{
-    border-color: white;
-    outline: none;
-    border-style: solid;
-    cursor: default;
-} 
+    .row {
+        list-style: none;
+        display: flex;
+    }
 
-::selection {
-    background-color: white;
-}
+    .my-text {
+        color: rgba(0,0,0,0.7);
+        font-size: 1.2em;
+        padding: 5px;
+        text-transform: uppercase;
+        margin: 10px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 500;
+    }
 
-.row {
-    list-style: none;
-    display: flex;
-}
+    li {
+        border: 2px solid slategrey;
+        height: 3em;
+        width: 3em;
+        color: rgba(0,0,0,0.7);
+        border-radius: 0.4em;
+        line-height: 3em;
+        letter-spacing: 1px;
+        margin: 0.4em;
+        transition: 0.3s;
+        text-align: center;
+        font-size: 1em;
+    }
 
-.my-text {
-    color: rgba(0,0,0,0.7);
-    font-size: 1.2em;
-    padding: 5px;
-    text-transform: uppercase;
-    margin: 10px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 500;
-}
+/* CorrectCounter.js */
+    .selected {
+        background-color: yellow;
+    }
 
-li {
-    border: 2px solid slategrey;
-    height: 3em;
-    width: 3em;
-    color: rgba(0,0,0,0.7);
-    border-radius: 0.4em;
-    line-height: 3em;
-    letter-spacing: 1px;
-    margin: 0.4em;
-    transition: 0.3s;
-    text-align: center;
-    font-size: 1em;
-}
+    .pressed {
+        background-color: slategray;
+        color: white;
+    }
 
-#TAB {
-    width: 5em;
-}
-  
-#CAPS {
-    width: 6em;
-}
+    .input-bar {
+        color:white;
+        width: 100%;
+        border-color: white;
+        border-style: solid;
+        cursor: default;
+    }
 
-#SHIFT {
-    width: 8em;
-}
+    :focus{
+        border-color: white;
+        outline: none;
+        border-style: solid;
+        cursor: default;
+    } 
 
-#ENTER {
-    width: 6em;
-}
+    ::selection {
+        background-color: white;
+    }
 
-#BACK {
-    width: 5em;
-}
+/* SpecialKeys.js */
+    #TAB {
+        width: 5em;
+    }
+    
+    #CAPS {
+        width: 6em;
+    }
+
+    #SHIFT {
+        width: 8em;
+    }
+
+    #ENTER {
+        width: 6em;
+    }
+
+    #BACK {
+        width: 5em;
+    }
