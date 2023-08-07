@@ -4,9 +4,9 @@ export default function Start ({started, setStarted}) {
     }
 
     return (
-        <div class="overlay" >
-            <div class="overlay-content" >
-                <button onClick={starttimer} class="overlay-button"> START </button>
+        <div className="overlay" >
+            <div className="overlay-content" >
+                <button onClick={starttimer} className="overlay-button"> START </button>
             </div>
         </div>
     );
