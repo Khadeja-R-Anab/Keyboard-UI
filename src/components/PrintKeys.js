@@ -6,10 +6,12 @@ import PrintNumeric from "./PrintKeys/PrintNumeric"
 import PrintAlphabetic from "./PrintKeys/PrintAlphabetic"
 import Timer from "./Timer";
 import CorrectCounter from "./CorrectCounter";
+import Start from "./Start";
 
 export default function PrintKeys ({alphabets, numbers, specialChars}) {
 
     const [timeRemaining, setTimeRemaining] = useState(60);
+    const [started, setStarted] = useState(0);
     const [selectedID, setSelectedID] = useState(null);
     const [keyPressed, setKeyPressed] = useState(null);
     const [correctKeys, setCorrectKeys] = useState(0);
@@ -17,7 +19,7 @@ export default function PrintKeys ({alphabets, numbers, specialChars}) {
     console.log("Testing", timeRemaining);
     return (
         < >
-            <Timer timeRemaining={timeRemaining} setTimeRemaining={setTimeRemaining}/>
+            <Timer timeRemaining={timeRemaining} setTimeRemaining={setTimeRemaining} started={started}/>
 
             <>
                 { timeRemaining !== 0 ? 
@@ -59,7 +61,10 @@ export default function PrintKeys ({alphabets, numbers, specialChars}) {
                 setIncorrectKeys={setIncorrectKeys} 
                 numbers={numbers}
                 alphabets={alphabets}  
+                started = {started}
             />
+
+            {started === 0 ? <Start started={started} setStarted = {setStarted}/> : null}
             
         </>
     )

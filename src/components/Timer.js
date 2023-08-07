@@ -1,15 +1,17 @@
 import { useEffect } from "react";
 
-export default function Timer({timeRemaining, setTimeRemaining}) {
+export default function Timer({timeRemaining, setTimeRemaining, started}) {
     
     useEffect(() => {
-        if (timeRemaining !== 0) {
+        if (started !== 0) {
+            if (timeRemaining !== 0) {
             
-            setTimeout(() => {
-                setTimeRemaining(timeRemaining - 1);
-            }, 1000);
+                setTimeout(() => {
+                    setTimeRemaining(timeRemaining - 1);
+                }, 1000);
+            }
         }
-    }, [timeRemaining])
+    }, [timeRemaining, started])
 
     return (
         <div className="my-text"> 
