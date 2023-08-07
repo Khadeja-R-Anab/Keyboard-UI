@@ -1,0 +1,92 @@
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    height: 100vh;
+}
+
+.overlap {
+    font-size: 2em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.5);
+}
+
+.selected {
+    background-color: yellow;
+}
+
+.pressed {
+    background-color: slategray;
+    color: white;
+}
+
+.input-bar {
+    color:white;
+    width: 100%;
+    border-color: white;
+    border-style: solid;
+    cursor: default;
+}
+
+:focus{
+    border-color: white;
+    outline: none;
+    border-style: solid;
+    cursor: default;
+} 
+
+::selection {
+    background-color: white;
+}
+
+.row {
+    list-style: none;
+    display: flex;
+}
+
+.my-text {
+    color: rgba(0,0,0,0.7);
+    font-size: 1.2em;
+    padding: 5px;
+    text-transform: uppercase;
+    margin: 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+}
+
+li {
+    border: 2px solid slategrey;
+    height: 3em;
+    width: 3em;
+    color: rgba(0,0,0,0.7);
+    border-radius: 0.4em;
+    line-height: 3em;
+    letter-spacing: 1px;
+    margin: 0.4em;
+    transition: 0.3s;
+    text-align: center;
+    font-size: 1em;
+}
+
+#TAB {
+    width: 5em;
+}
+  
+#CAPS {
+    width: 6em;
+}
+
+#SHIFT {
+    width: 8em;
+}
+
+#ENTER {
+    width: 6em;
+}
+
+#BACK {
+    width: 5em;
+}
