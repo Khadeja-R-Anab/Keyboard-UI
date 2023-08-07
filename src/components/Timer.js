@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 
 export default function Timer({setTimeEnded, started, wasReset, setWasReset}) {
     
-    const [timeRemaining, setTimeRemaining] = useState(10);
+    const [timeRemaining, setTimeRemaining] = useState(60);
 
     useEffect(() => {
         if (wasReset === 1) {
-            setTimeRemaining(10);
+            setTimeRemaining(60);
             setWasReset(0);
         }
     }, [wasReset])

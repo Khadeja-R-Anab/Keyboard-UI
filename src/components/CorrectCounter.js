@@ -63,7 +63,7 @@ export default function CorrectCounter({timeEnded,
         if (selectedID === null) {
             chooseRandom();
         }
-    }) 
+    }, [selectedID]) 
 
     return (
         <div className="my-text"> 
