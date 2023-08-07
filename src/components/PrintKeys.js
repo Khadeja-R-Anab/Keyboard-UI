@@ -7,20 +7,21 @@ import PrintAlphabetic from "./PrintKeys/PrintAlphabetic"
 import Timer from "./Timer";
 import CorrectCounter from "./CorrectCounter";
 import Start from "./Start";
+import TryAgain from "./TryAgain";
 
 export default function PrintKeys ({alphabets, numbers, specialChars}) {
 
     const [timeEnded, setTimeEnded] = useState(0);
-    
     const [started, setStarted] = useState(0);
     const [selectedID, setSelectedID] = useState(null);
     const [keyPressed, setKeyPressed] = useState(null);
     const [correctKeys, setCorrectKeys] = useState(0);
     const [incorrectKeys, setIncorrectKeys] = useState(0);
-    console.log("Testing", timeEnded);
+    const [wasReset, setWasReset] = useState(0);
+    
     return (
         < >
-            <Timer setTimeEnded={setTimeEnded} started={started}/>
+            <Timer setTimeEnded={setTimeEnded} started={started} wasReset={wasReset} setWasReset={setWasReset}/>
 
             <>
                 { timeEnded === 0 ? 
@@ -47,8 +48,19 @@ export default function PrintKeys ({alphabets, numbers, specialChars}) {
                                 <PrintSpecial array={specialChars} startIndex={13} endIndex={17}/>
                             </Row>
 
-                    </> : 
-                    <div className="overlap"> Correct Keys Pressed : {correctKeys} <br/> Incorrect Keys Pressed : {incorrectKeys}</div> 
+                    </> :   <div className="overlap"> 
+                                <span> Correct Keys Pressed : {correctKeys} </span> 
+                                <span> Incorrect Keys Pressed : {incorrectKeys} </span>
+                                <div>
+                                    <TryAgain setTimeEnded={setTimeEnded}
+                                        setSelectedID={setSelectedID}
+                                        setKeyPressed={setKeyPressed}
+                                        setCorrectKeys={setCorrectKeys}
+                                        setIncorrectKeys={setIncorrectKeys}
+                                        setWasReset={setWasReset} 
+                                        setStarted={setStarted}/>
+                                </div>
+                            </div> 
                 }
             </>
 

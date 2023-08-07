@@ -60,8 +60,10 @@ export default function CorrectCounter({timeEnded,
     }
 
     useEffect(()=>{
-        chooseRandom();
-    },[]) 
+        if (selectedID === null) {
+            chooseRandom();
+        }
+    }) 
 
     return (
         <div className="my-text"> 
