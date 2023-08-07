@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export default function Timer({timeRemaining, setTimeRemaining, started}) {
+export default function Timer({setTimeEnded, started}) {
     
+    const [timeRemaining, setTimeRemaining] = useState(60);
+
     useEffect(() => {
         if (started !== 0) {
             if (timeRemaining !== 0) {
@@ -9,6 +11,8 @@ export default function Timer({timeRemaining, setTimeRemaining, started}) {
                 setTimeout(() => {
                     setTimeRemaining(timeRemaining - 1);
                 }, 1000);
+            } else {
+                setTimeEnded(1);
             }
         }
     }, [timeRemaining, started])

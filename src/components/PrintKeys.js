@@ -10,19 +10,20 @@ import Start from "./Start";
 
 export default function PrintKeys ({alphabets, numbers, specialChars}) {
 
-    const [timeRemaining, setTimeRemaining] = useState(60);
+    const [timeEnded, setTimeEnded] = useState(0);
+    
     const [started, setStarted] = useState(0);
     const [selectedID, setSelectedID] = useState(null);
     const [keyPressed, setKeyPressed] = useState(null);
     const [correctKeys, setCorrectKeys] = useState(0);
     const [incorrectKeys, setIncorrectKeys] = useState(0);
-    console.log("Testing", timeRemaining);
+    console.log("Testing", timeEnded);
     return (
         < >
-            <Timer timeRemaining={timeRemaining} setTimeRemaining={setTimeRemaining} started={started}/>
+            <Timer setTimeEnded={setTimeEnded} started={started}/>
 
             <>
-                { timeRemaining !== 0 ? 
+                { timeEnded === 0 ? 
                     <>
                             {/* change start and end index as required */}
                             <Row>
@@ -52,7 +53,7 @@ export default function PrintKeys ({alphabets, numbers, specialChars}) {
             </>
 
             <CorrectCounter 
-                timeRemaining={timeRemaining}
+                timeEnded={timeEnded}
                 setKeyPressed={setKeyPressed}
                 selectedID={selectedID}
                 setSelectedID={setSelectedID} 
